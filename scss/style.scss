@@ -1,0 +1,1860 @@
+// Colors
+
+$green: rgb(30, 215, 96);
+$light-black: rgb(40, 40, 40);
+$black: rgb(24, 24, 24);
+$grey: rgb(170, 170, 170);
+$sand: rgb(200, 200, 200);
+$white: rgb(255, 255, 255);
+$blue: #4688d7;
+
+// Spacing
+
+$padding-xs  : 5px;
+$padding-sm  : 10px;
+$padding     : 15px;
+$padding-lg  : 30px;
+$padding-xl  : 60px;
+
+$margin-xs  : 5px;
+$margin-sm  : 10px;
+$margin     : 15px;
+$margin-lg  : 30px;
+$margin-xl  : 60px;
+
+// Borders
+
+$border-radius: 15px;
+
+// Font-sizes
+
+$x-small: 11px;
+$small: 14px;
+$medium: 16px;
+$large: 20px;
+$x-large: 24px;
+$xx-large: 36px;
+$xxx-large: 52px;
+
+
+
+// ===== Styles ==== //
+
+body {
+  background: $black;
+  font-family: 'Roboto', sans-serif;
+  
+  a {
+    color: $grey;
+    
+    &:hover {
+      color: $sand;
+    }
+  }
+  
+}
+
+.header {
+  
+  & {
+    background: $light-black;
+    padding: $padding-sm;
+    color: $grey;
+    border-bottom: 1px solid $black;
+    
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+  }
+  
+  .window__actions {}
+  
+  .page-flows {
+    
+    .flow {
+      
+      font-size: $large;
+      color: $grey;
+      margin: 0 $margin-sm;
+      
+      &:hover {
+        color: $white;
+      }
+      
+      .disabled {
+        color: darken( $grey , 30% );
+      }
+    }
+    
+  }
+  
+  .search {
+    
+    margin-left: 1%;
+    
+    input {
+      
+      border-radius: $border-radius;
+      border: none;
+      background: $white;
+      color: $black;
+      padding-left: $padding-lg;
+      outline: none;
+      background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/7022/ios-search.svg);
+      background-repeat: no-repeat;
+      background-size: 10%;
+      background-position: 5px;
+      
+    }
+    
+  }
+  
+  .user {
+    
+    & {
+      width: 300px;
+      margin-left: auto;
+      
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    i {
+      font-size: $large;
+      
+      &:hover {
+        color: $white;
+        cursor: pointer;
+      }
+    }
+    
+    &__notifications {}
+    
+    &__inbox {}
+    
+    &__info {
+      
+      img {
+        
+        max-width: 30px;
+        max-height: 30px;
+        border-radius: 50%;
+        display: inline-block;
+        
+      }
+      
+    }
+    
+    &__actions {
+      
+      button {
+        background: none;
+        border: none;
+      }
+      
+      .dropdown-menu {
+        background: $light-black;
+        margin-top: 25px;
+        border-radius: 2px;
+        padding: 0;
+        border: none;
+        
+        &:before {
+          font-family: "Ionicons";
+          content: "\f365";
+          position: absolute;
+          top: -30px;
+          right: 7px;
+          color: $light-black;
+          font-size: $xx-large;
+        }
+        
+        a {
+          color: $grey;
+          transition: all 0.2s ease;
+          
+          &:hover {
+            background: none;
+            transition: all 0.2s ease;
+          }
+        }
+        
+        li {
+          padding: $padding-sm;
+          margin: 0;
+          transition: all 0.2s ease;
+          
+          &:hover {
+            background: $grey;
+            transition: all 0.2s ease;
+            
+            a {
+              color: $sand;
+              transition: all 0.2s ease;
+            }
+          }
+        }
+        
+      }
+      
+    }
+    
+  }
+  
+}
+
+.content {
+  
+  & {
+    display: flex;
+    flex-flow: row wrap;
+  }
+  
+  &__left {
+    width: 15%;
+  }
+  
+  &__middle {
+    width: 70%;
+  }
+  
+  &__right {
+    width: 15%;
+  }
+  
+  @media (max-width: 1400px) {
+    
+    &__left {
+      width: 20%;
+    }
+    
+    &__middle {
+      width: 80%;
+    }
+    
+    &__right {
+      display: none;
+    }
+    
+  }
+  
+  @media (max-width: 768px) {
+    
+    &__left {
+      width: 100%;
+    }
+    
+    &__middle {
+      width: 100%;
+    }
+    
+  }
+  
+}
+
+.navigation {
+  
+  & {
+    padding: $padding;
+    background: $light-black;
+    color: $grey;
+    overflow-y: scroll;
+  }
+  
+  &__list {
+    
+    & {
+      display: flex;
+      flex-flow: column wrap;
+      margin-bottom: $margin;
+    }
+    
+    &__header {
+      @extend .h2;
+      
+      &:after {
+        font-family: "Ionicons";
+        content: "\f123";
+      }
+      
+    }
+    
+    .active {
+      &:after {
+        font-family: "Ionicons";
+        content: "\f126";
+      }
+    }
+    
+    &__item {
+      
+      & {
+        color: $grey;
+        padding: $padding-xs 0;
+
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+      }
+      
+      &:hover {
+        color: $white;
+        text-decoration: none;
+        border-right: 3px solid $green;
+      }
+      
+      i {
+        width: 25px;
+        display: block;
+      }
+      
+    }
+    
+  }
+  
+}
+
+  @media (max-width: 768px) {
+  
+    .navigation {
+
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-around;
+      
+      &__list {
+        margin-bottom: 0;
+        width: calc( 100% / 3 );
+        text-align: center;
+        
+        &__item {
+          
+          width: 100%;
+          text-align: center;
+          
+          i {
+            display: none;
+          }
+          
+          span {
+            margin: 0 auto;
+          }
+          
+          &:hover {
+            border: none;
+          }
+          
+        }
+        
+      }
+
+    }
+
+  }
+
+.playlist {
+  
+  & {
+    padding: $padding;
+    background: $light-black;
+    border-top: 1px solid $black;
+    border-bottom: 1px solid $black;
+  }
+  
+  &:hover {
+    background: lighten( $light-black, 10% );
+    
+    a {
+      color: $white;
+    }
+  }
+  
+  a {
+    color: $grey;
+    
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    
+    &:hover {
+      text-decoration: none;
+    }
+    
+    i {
+      font-size: $x-large;
+      color: $white;
+      margin-right: $margin;
+    }
+    
+  }
+  
+}
+
+  @media (max-width: 768px) {
+  
+  .playlist {
+
+    display: none;
+
+  }
+
+}
+
+.playing {
+  
+  & {
+    background: $light-black;
+    border-bottom: 1px solid $black;
+    
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+  }
+  
+  &__art {
+    
+    img {
+      width: 50px;
+      height: 50px;
+    }
+    
+  }
+  
+  &__song {
+    color: $grey;
+    padding-left: $padding;
+    
+    display: flex;
+    flex-flow: column wrap;
+    
+    a {
+      color: $grey;
+      
+      &:hover {
+        color: $white;
+        cursor: pointer;
+      }
+    }
+    
+  }
+  
+  &__add {
+    margin-left: auto;
+    padding-right: $padding;
+    color: $grey;
+  }
+  
+}
+
+  @media (max-width: 768px) {
+  
+  .playing {
+    border-top: 1px solid $black;
+  }
+  
+}
+
+.current-track {
+  
+  & {
+    //position: fixed;
+    //bottom: 0;
+    //width: 100%;
+    
+    background: $light-black;
+    padding: $padding-xs $padding;
+    
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+  }
+  
+  &__actions {
+    
+    & {
+      width: 5%;
+    
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    a {
+      font-size: $x-large;
+      color: $sand;
+      
+      &:hover {
+        color: $white;
+        cursor: pointer;
+      }
+    }
+    
+    .play {
+      font-size: $xx-large;
+    }
+    
+  }
+  
+  &__progress {
+    
+    & {
+      width: 70%;
+      padding: 0 $padding-lg;
+      color: $grey;
+      font-size: $x-small;
+      
+      display: flex;
+      flex-flow: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    &__bar {
+      width: 100%;
+      padding: 0 $padding;
+      
+      .noUi-target {
+        border: none;
+        height: 4px;
+      }
+      
+      .noUi-base {
+        background: $green;
+      }
+      
+      .noUi-origin {
+        background: darken( $grey , 30% );
+      }
+      
+      .noUi-handle {
+        background: $sand;
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        box-shadow: none;
+        border: none;
+        left: 0;
+        display: none;
+        
+        &:before, &:after {
+          background: none;
+        }
+      }
+      
+    }
+    
+    &:hover {
+        
+      .noUi-handle {
+        display: block;
+      }
+
+    }
+    
+  }
+  
+  &__options {
+    
+    & {
+      width: 25%;
+      
+      display: flex;
+      flex-flow: row wrap;
+      align-items: center;
+    }
+    
+    .lyrics {
+      font-size: $x-small;
+      text-transform: uppercase;
+      width: 15%;
+      padding: 0 $padding 0 0;
+    }
+    
+    .controls {
+      
+      & {
+        width: 85%;
+      
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+      }
+      
+      .devices {
+        
+        &:hover {
+          text-decoration: none;
+        }
+        
+        i {
+          margin-right: $margin-xs;
+        }
+        
+        span {
+          font-size: $x-small;
+          text-transform: uppercase;
+        }
+        
+      }
+      
+      .volume {
+        width: 25%;
+        
+        display: flex;
+        flex-flow: row wrap;
+        align-items: center;
+        
+        i {
+          width: 20px;
+          color: $grey;
+        }
+        
+        #song-volume {
+          width: calc( 80% - 20px );
+          border: none;
+          height: 4px;
+
+          .noUi-base {
+            background: $sand;
+          }
+
+          .noUi-origin {
+            background: darken( $grey , 30% );
+          }
+
+          .noUi-handle {
+            background: $sand;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            box-shadow: none;
+            border: none;
+            left: 0;
+            display: none;
+
+            &:before, &:after {
+              background: none;
+            }
+          }
+          
+          &:hover {
+        
+            .noUi-handle {
+              display: block;
+            }
+
+          }
+          
+        }
+        
+      }
+      
+    }
+    
+  }
+  
+  @media (max-width: 1400px) {
+    
+    &__actions {
+      width: 10%;
+    }
+    
+    &__progress {
+      width: 50%;
+    }
+    
+    &__options {
+      width: 40%;
+    }
+    
+  }
+  
+  @media (max-width: 980px) {
+    
+    &__actions {
+      width: 10%;
+    }
+    
+    &__progress {
+      width: 40%;
+    }
+    
+    &__options {
+      width: 50%;
+    }
+    
+  }
+  
+  @media (max-width: 768px) {
+    
+    &__actions {
+      width: 25%;
+    }
+    
+    &__progress {
+      width: 75%;
+    }
+    
+    &__options {
+      width: 100%;
+    }
+    
+  }
+  
+  @media (max-width: 480px) {
+    
+    &__actions {
+      width: 100%;
+      justify-content: space-around;
+      padding: $padding-xs 0;
+    }
+    
+    &__progress {
+      width: 100%;
+      padding: $padding-xs 0;
+    }
+    
+    &__options {
+      width: 100%;
+      padding: $padding-xs 0;
+    }
+    
+  }
+  
+}
+
+  @media (max-width: 768px) {
+  
+    .current-track {
+
+      &__action {
+        padding-top: $padding;  
+      }
+
+    }
+
+  }
+
+.artist {
+  
+  height: 617px;
+  overflow-y: scroll;
+  
+  &__header {
+    
+    & {
+      height: 320px;
+      border-bottom: 1px solid $light-black;
+      position: relative;
+      background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/7022/spotify_img_bground.png);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      overflow: hidden;
+      z-index: 1;
+      
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+    
+    &:before {
+      content: ' ';
+      display: block;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      opacity: 0.15;
+      background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/7022/g-eazy.png);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: top;
+      
+    }
+    
+    .artist__info {
+      
+      & {
+        padding: $padding;
+        z-index: 1;
+        width: 80%;
+        margin-top: $margin-xl * 1.3;
+
+        display: flex;
+        flex-flow: row wrap;
+        align-items: flex-end;
+      }
+      
+      .profile__img {
+        
+        margin-right: $margin;
+        
+        img {
+          width: 150px;
+          height: 150px;
+          border-radius: 50%;
+        }
+      }
+      
+      &__type {
+        color: $grey;
+        text-transform: uppercase;
+        font-size: 11px;
+        letter-spacing: 1px;
+      }
+      
+      &__name {
+        color: $white;
+        font-size: $xx-large;
+        font-weight: 100;
+        padding: 0 0 $padding-sm 0;
+      }
+      
+      &__actions {
+        
+        display: flex;
+        flex-flow: row wrap;
+        
+        button {
+          margin-right: $margin-sm;
+          height: 27px;
+          
+          display: flex;
+          flex-flow: row wrap;
+          align-items: center;
+          padding: 0 $padding;
+          font-weight: 500;
+          
+          i {
+            font-size: $large;
+            margin-right: $margin-xs;
+          }
+          
+        }
+        
+        .more {
+          width: 27px;
+          height: 27px;
+          border-radius: 50%;
+          padding: 0;
+          text-align: center;
+          
+          i {
+            margin: 0;
+            padding-left: 6px;
+          }
+        }
+        
+      }
+      
+    }
+    
+    .artist__listeners {
+      width: 20%;
+      z-index: 1;
+      padding: $padding;
+      text-align: right;
+      color: $grey;
+      font-weight: 100;
+      font-size: 16px;
+      letter-spacing: 1px;
+      
+      &__label {
+        font-weight: 300;
+        text-transform: uppercase;
+        font-size: 12px;
+        letter-spacing: 1px;
+      }
+    }
+    
+    .artist__navigation {
+      
+      & {
+        width: 100%;
+        z-index: 1;
+        background: rgba( 24, 24, 24, .6);
+        
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        align-items: center;
+      }
+      
+      ul {
+        
+        border: none;
+        
+        li {
+          
+          padding: 0 $padding;
+          
+          a {
+            padding: $padding 0;
+            color: $grey;
+            border: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.4s ease;
+            border-bottom: 4px solid rgba(0, 0, 0, 0);
+            
+            &:hover {
+              background: none;
+              border: none;
+              color: $white;
+              transition: all 0.4s ease;
+              border-bottom: 4px solid rgba(0, 0, 0, 0);
+            }
+            
+          }
+          
+          &.active {
+            
+            a {
+              color: $white;
+              background: none;
+              border: none;
+              border-bottom: 4px solid $green;
+              
+              &:hover {
+                border-bottom: 4px solid $green;
+              }
+            }
+            
+          }
+          
+        }
+        
+      }
+      
+      &__friends {
+        
+        & {
+          padding: $padding;
+        }
+        
+        img {
+          width: 30px;
+          height: 30px;
+          border-radius: 50%;
+          position: relative;
+        }
+        
+        .tooltip {
+          z-index: 1;
+          position: absolute;
+        }
+        
+      }
+      
+    }
+    
+  }
+  
+  &.is-verified {
+    
+    .profile__img {
+      
+      position: relative;
+      
+      &:after {
+        font-family: "Ionicons";
+        content: "\f3fd";
+        position: absolute;
+        bottom: 5px;
+        right: 25px;
+        color: $white;
+        background: $blue;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        text-align: center;
+        font-size: 18px;
+        line-height: 1;
+      }
+      
+    }
+    
+  }
+  
+  &__content {
+    
+    & {
+      padding: $padding;
+    }
+    
+    .overview {
+      
+      display: flex;
+      flex-flow: row wrap;
+      
+      &__artist {
+        
+        padding-right: $padding;
+        width: 70%;
+        
+        .latest-release {
+          margin-bottom: $margin-lg;
+          
+          display: flex;
+          flex-flow: row wrap;
+          
+          &__art {
+            
+            width: 75px;
+            
+            img {
+              width: 75px;
+              height: 75px;
+            }
+            
+          }
+          
+          &__song {
+            
+            width: calc( 100% - 75px );
+            
+            padding: $padding-sm $padding;
+            background: $light-black;
+            color: $grey;
+            
+            display: flex;
+            flex-flow: column wrap;
+            justify-content: space-between;
+            
+            &__title {
+              color: $sand;
+            }
+            
+          }
+          
+        }
+        
+      }
+      
+      &__related {
+        width: 30%;
+      }
+      
+      @media (max-width: 1024px) {
+        
+        &__artist {
+          width: 100%;
+        }
+        
+        &__related {
+          width: 100%;
+          margin-top: $margin;
+        }
+        
+      }
+      
+      @media (max-width: 768px) {
+        
+        &__artist {
+          padding-right: 0;
+        }
+        
+      }
+      
+    }
+    
+  }
+  
+}
+
+  @media (max-width: 768px) {
+  
+  .artist {
+    overflow-y: auto;
+  }
+  
+}
+
+  @media (max-width: 522px) {
+    
+    .artist {
+      
+      &__header {
+        height: auto;
+        
+        flex-flow: column wrap;
+        
+        .artist__info {
+          
+          & {
+            margin-top: 0;
+            width: 100%;
+            
+            display: flex;
+            flex-flow: column wrap;
+            align-items: center;
+            text-align: center;
+          }
+          
+          .profile__img {
+            margin-right: 0;
+          }
+          
+          &__type {
+            margin-top: $margin-sm;
+          }
+          
+        }
+        
+        .artist__listeners {
+          width: 100%;
+          text-align: center;
+        }
+      }
+      
+    }
+    
+  }
+
+.tracks {
+  
+  & {
+    display: flex;
+    flex-flow: column wrap;
+    margin-bottom: $margin;
+  }
+  
+  &__heading {
+    
+    & {
+      color: $grey;
+      height: 42px;
+      
+      display: flex;
+      flex-flow: row wrap;
+      align-items: center;
+    }
+    
+    &__number {
+      margin-left: $margin-sm;
+      font-style: italic;
+    }
+    
+    &__title {
+      margin-left: 70px;
+      width: 45%;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    &__length {
+      margin-left: auto;
+      font-size: $large;
+    }
+    
+    &__popularity {
+      font-size: $large;
+      margin-left: 55px;
+      padding-right: $padding-sm;
+    }
+    
+  }
+  
+  .track {
+    
+    & {
+      border-top: 1px solid $light-black;
+      height: 42px;
+      display: flex;
+      flex-flow: row wrap;
+      align-items: center;
+    }
+    
+    &:hover {
+      background: $light-black;
+    }
+    
+    &:last-child {
+      border-bottom: 1px solid $light-black;
+    }
+    
+    &__art {
+      
+      img {
+        width: 42px;
+        height: 42px;
+      }
+      
+    }
+    
+    &__number {
+      
+      margin-left: $margin-sm;
+      color: $grey;
+      width: 12px;
+      
+    }
+    
+    &__added {
+      
+      margin-left: $margin * 2;
+      color: $sand;
+      
+      .added {
+        color: $sand;
+      }
+      
+      .not-added {
+        color: $grey;
+      }
+      
+    }
+    
+    &__title {
+      width: 45%;
+      margin-left: $margin * 2;
+      color: $white;
+      
+      &.featured {
+        
+        .title {
+          
+          &:after {
+            content: "-";
+            margin: 0 $margin-xs;
+          }
+          
+        }
+        
+        .feature {
+          color: $grey;
+          
+          &:after {
+            content: ",";
+            margin-right: $margin-xs;
+          }
+          
+          &:last-child {
+            
+            &:after {
+              content: "";
+              margin-right: 0;
+            }
+            
+          }
+
+          &:hover {
+            cursor: pointer;
+            color: $sand;
+            text-decoration: underline;
+          }
+          
+        }
+        
+      }
+      
+      
+    }
+    
+    &__explicit {
+      
+      .label {
+        border: 1px;
+        border-style: solid;
+        border-color: lighten( $light-black , 10% );
+        color: lighten( $light-black , 10% );
+        text-transform: uppercase;
+      }
+      
+    }
+    
+    &__plays {
+      
+      color: $grey;
+      margin-left: auto;
+      padding-right: $padding-sm;
+      
+    }
+    
+    &__length {
+      margin-left: auto;
+      color: $grey;
+    }
+    
+    &__popularity {
+      margin-left: 46px;
+      padding-right: $padding-sm;
+      font-size: $large;
+      color: $grey;
+    }
+    
+  }
+  
+}
+
+  @media (max-width: 1200px) {
+    
+    .tracks {
+      
+      &__heading {
+        
+        &__title {
+          width: auto;
+        }
+        
+        &__popularity {
+          display: none;
+        }
+        
+      }
+      
+      .track {
+        
+        &__title {
+          width: auto !important;
+        }
+        
+        &__explicit {
+          display: none;
+        }
+        
+        &__popularity {
+          display: none;
+        }
+        
+      }
+      
+    }
+    
+  }
+
+.related-artists {
+  
+  & {
+    display: flex;
+    flex-flow: column wrap;
+  }
+  
+  .related-artist {
+    
+    & {
+      background: $light-black;
+      padding: $padding-xs;
+      margin-bottom: 2px;
+    }
+    
+    &:hover {
+      background: lighten( $light-black , 6% );
+      text-decoration: none;
+    }
+    
+    &__img {
+      
+      img {
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+      }
+      
+    }
+    
+    &__name {
+      margin-left: $margin;
+      color: $white;
+    }
+    
+  }
+  
+}
+
+  @media (max-width: 1024px) {
+
+    .related-artists {
+
+      & {
+        flex-flow: row wrap;
+      }
+
+      .related-artist {
+        margin: $margin-sm;
+        width: calc( (100% / 3) - 20px );
+      }
+
+    }    
+
+  }
+
+  @media (max-width: 768px) {
+
+    .related-artists {
+
+      .related-artist {
+        margin: $margin-xs;
+        width: calc( (100% / 2) - 10px );
+      }
+
+    }
+
+
+
+  }
+
+  @media (max-width: 480px) {
+
+    .related-artists {
+
+      .related-artist {
+        margin: $margin-xs;
+        width: 20%;
+        background: none;
+
+        &:hover {
+          background: none;
+          opacity: .6;
+        }
+
+        &__name {
+          display: none;
+        }
+
+      }
+
+    }
+
+  }
+
+.overview {
+  
+  &__albums {
+    
+    width: 100%;
+    margin-top: $margin-lg;
+    
+    &__head {
+      
+      & {
+        border-bottom: 1px solid $light-black;
+        margin-bottom: $margin-sm;
+        
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        align-items: center;
+      }
+      
+      .view-type {
+        color: $white;
+        margin-bottom: 4px;
+        
+        .active {
+          background: $light-black;
+          padding: 8px;
+          border-radius: 50%;
+          
+          
+        }
+        
+        i {
+          padding: 8px;
+          border-radius: 50%;
+          
+          &:hover {
+            padding: 8px;
+            border-radius: 50%;
+            background: lighten( $light-black , 5% );
+            cursor: pointer;
+          }
+        }
+        
+      }
+      
+    }
+    
+  }
+  
+}
+
+.album {
+  
+  &__info {
+    
+    & {
+      margin-bottom: $margin;
+      
+      display: flex;
+      flex-flow: row wrap;
+    }
+    
+    &__art {
+      
+      img {
+        width: 135px;
+        height: 135px;
+      }
+      
+    }
+    
+    &__meta {
+      
+      & {
+        width: calc( 100% - 150px);
+        margin-left: $margin;
+        
+        display: flex;
+        flex-flow: column wrap;
+      }
+      
+      .album__year {
+        color: $grey;
+        letter-spacing: 1px;
+      }
+      
+      .album__name {
+        color: $white;
+        font-size: $xx-large / 1.2;
+        font-weight: 100;
+      }
+      
+      .album__actions {
+        margin-top: auto;
+        
+        .save {
+          
+          padding-left: $padding-lg;
+          padding-right: $padding-lg; 
+          margin-right: $margin-sm;
+          
+          &:hover {
+            border-color: $green;
+          }
+          
+        }
+        
+        .more {
+          width: 27px;
+          height: 27px;
+          border-radius: 50%;
+          padding: 0;
+          text-align: center;
+        }
+        
+      }
+      
+    }
+    
+  }
+  
+  .track {
+    
+    &__title {
+      width: 70%;
+    }
+    
+  }
+  
+}
+
+  @media (max-width: 1200px) {
+  
+  .album {
+    
+    .tracks {
+      
+      .track {
+        
+        height: auto;
+        padding: $padding-sm 0;
+        
+      }
+      
+    }
+    
+  }
+  
+}
+
+.social {
+  
+  & {
+    padding: $padding;
+    text-align: center;
+    overflow-y: scroll;
+  }
+  
+  .friends {
+    
+    & {
+      display: flex;
+      flex-flow: column wrap;
+      margin-bottom: $margin;
+    }
+    
+    .friend {
+      
+      & {
+        padding: $padding 0;
+
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+      }
+      
+      &:first-child {
+        padding-top: 0;
+      }
+      
+      i {
+        font-size: $large;
+        margin-right: $margin;
+      }
+      
+    }
+    
+  }
+  
+}
+
+.media-cards {
+  
+  & {
+    display: flex;
+    flex-flow: row wrap;
+  }
+  
+  .media-card {
+    
+    & {
+      margin: $margin;
+      width: calc( (100% / 4) - 30px );
+    }
+    
+    &__image {
+      height: 200px;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      
+      display: flex;
+      align-items: center;
+      
+      i {
+        color: $white;
+        font-size: 72px;
+        margin: 0 auto;
+        opacity: 0;
+        transition: all 0.5s ease;
+        text-shadow: 1px 5px 15px $black;
+        
+        &:hover {
+          cursor: pointer;
+        }
+      }
+      
+      &:hover {
+        
+        i {
+          opacity: 1;
+          transition: all 0.5s ease;
+        }
+        
+      }
+      
+    }
+    
+    &__footer {
+      
+      & {
+        display: block;
+        background: $light-black;
+        padding: $padding;
+        color: $white;
+      }
+      
+      &:hover {
+        cursor: pointer;
+      }
+      
+    }
+    
+  }
+  
+}
+
+  @media (max-width: 1100px) {
+
+    .media-cards {
+
+      .media-card {
+
+        & {
+          width: calc( (100% / 3) - 30px );
+        }
+
+      }
+
+    }
+
+  }
+
+  @media (max-width: 768px) {
+
+    .media-cards {
+
+      .media-card {
+
+        & {
+          width: calc( (100% / 2) - 30px );
+        }
+
+      }
+
+    }
+
+  }
+
+  @media (max-width: 480px) {
+
+    .media-cards {
+
+      .media-card {
+
+        & {
+          margin: $margin 0;
+          width: 100%;
+        }
+
+      }
+
+    }
+
+  }
+
+
+::-webkit-scrollbar {
+	width: 8px;
+}
+::-webkit-scrollbar-thumb { 
+	    border-radius: 4px;
+			background: lighten( $light-black , 6% );
+}
+
+// Media Queries
+
+@media (max-width: 650px) {
+  
+  .header {
+    
+    .window__actions {
+      width: 15%;
+    }
+    
+    .page-flows {
+      width: 20%;
+      margin: 0;
+    }
+    
+    .search {
+      width: 65%;
+      margin: 0;
+      
+      input {
+        width: 100%;
+        background-size: 7%;
+      }
+    }
+    
+    .user {
+      width: 100%;
+      margin-top: $margin;
+      
+      justify-content: space-around;
+    }
+    
+  }
+  
+}
+
+
+// ==== Framework ==== //
+
+.h1 {
+  font-size: 36px;
+}
+
+.h2 {
+  font-size: $x-small;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: $margin-xs;
+}
+
+.red {
+  color: #fc615c;
+  
+  &:hover {
+    color: darken( #fc615c , 10% );
+  }
+}
+
+.yellow {
+  color: #fdbe41;
+  
+  &:hover {
+    color: darken( #fdbe41 , 10% );
+  }
+}
+
+.green {
+  color: #34c94a;
+  
+  &:hover {
+    color: darken( #34c94a , 10% );
+  }
+}
+
+button {
+  border-radius: 20px;
+  border: none;
+  padding: $padding-xs $padding;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: $x-small;
+  outline: none;
+  
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.button-dark {
+  background: $green;
+  color: $white;
+  border: 1px solid $green;
+  
+  &:hover {
+    background: lighten( $green, 10% );
+  }
+}
+
+.button-light {
+  background: none;
+  color: $sand;
+  border: 1px solid $sand;
+  
+  &:hover {
+    border-color: $white;
+    color: $white;
+  }
+}
+
+.section-title {
+  
+  text-transform: uppercase;
+  color: $grey;
+  letter-spacing: 1.25px;
+  font-size: $x-small * 1.2;
+  margin-bottom: $margin-sm;
+  
+}
